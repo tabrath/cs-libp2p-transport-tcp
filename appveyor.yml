@@ -20,6 +20,9 @@ deploy:
     secure: WcDqU36pLPvA+s5D4N0VEsi7AZGewvf4croE/D3rh3F+iqiztq9w5gHbrhgoTNS9
   on:
     branch: master
+test:
+  assemblies:
+    - LibP2P.Transport.Tcp.Tests.dll
 after_test:
   - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:".\packages\NUnit.ConsoleRunner.3.5.0\tools\nunit3-console.exe" -targetargs:".\LibP2P.Transport.Tcp.Tests\bin\Release\LibP2P.Transport.Tcp.Tests.dll" -filter:"+[LibP2P.Transport.Tcp]* -[LibP2P.Transport.Tcp.Benchmarks]* -[LibP2P.Transport.Tcp.Tests]*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\coverage.xml
   - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
